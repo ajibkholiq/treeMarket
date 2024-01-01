@@ -3,10 +3,180 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
 @endpush
 @section('content')
-  
-    <div class="row" id="barang" style="border:1">
-    
+    <div class="row" id="barang" style="border:1"></div>
+    <div class="modal fade" id="checkout-modal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalgridLabel">Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ">
+                        <div class="col-lg-12">
+                            <hr>
+                            <div id="or"></div>
+                            {{-- <div class="table-responsive table-card">
+                                <table class="table table-borderless align-middle mb-0" id="data">
+                                    <thead class="table-light text-muted">
+                                        <tr>
+                                            <th style="width: 90px;" scope="col">Product</th>
+                                            <th scope="col">Product Info</th>
+                                            <th scope="col" class="text-end">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody  >
+                                    
 
+                                        <tr id="or" class="table-active">
+                                            <th colspan="2">Total (IDR) :</th>
+                                            <td class="text-end">
+                                                <span class="fw-semibold " id="total">
+                                                    $353.15
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> --}}
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="m-0 ">Total:</h5>
+                                <div class="px-2">
+                                    <h5 class="m-0" id="checkout-total"></h5>
+                                </div>
+                            </div>
+                            <hr>
+
+                        </div>
+                        <div class="col-lg-12">
+                            <label for="type" class="form-label">Type</label>
+                            <select required class="form-select mb-3" name="type" id="type"
+                                aria-label="Default select example">
+                                <option value="kirim">Kirim ke Rumah</option>
+                                <option value="ambil">Ambil ke Toko</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="note" class="form-label">Note</label>
+                                <textarea class="form-control" id="note" name="note" placeholder="Note..." rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-lg-12  mt-5">
+                            <div class="d-flex gap-2 justify-content-end">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                <button type="button" id="checkout" class="btn btn-primary">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="costumer-modal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <form action="javascript:void(0);" method="POST" id="form-costumer" data-uuid="" data-jumlah=""
+                        enctype="multipart/form-data">
+
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="pills-bill-info" role="tabpanel"
+                                aria-labelledby="pills-bill-info-tab">
+                                <div>
+                                    <h5 class="mb-1">Billing Information</h5>
+                                    <p class="text-muted mb-4">Please fill all information below</p>
+                                </div>
+
+                                <div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="billinginfo-firstName" class="form-label">Name</label>
+                                                <input type="text" class="form-control" id="nama" name="nama"
+                                                    placeholder="Enter name" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="billinginfo-email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email"
+                                                    placeholder="Enter email">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="nama" class="form-label">Handphone</label>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text">+62</span>
+                                                    <input type="number" placeholder="Enter Phone" required
+                                                        name="nohp" id="nohp" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="billinginfo-address" class="form-label">Address</label>
+                                        <textarea class="form-control" id="alamat" name="alamat" placeholder="Enter address" rows="3"></textarea>
+                                    </div>
+
+                                    <div class="d-flex">
+                                        <button type="submit" class="btn btn-primary right ms-auto nexttab">Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end tab content -->
+                    </form>
+                    {{-- <form action="javascript:void(0);" method="POST" id="form-costumer" data-uuid="" data-jumlah=""
+                        enctype="multipart/form-data">
+                        <div class="row g-3">
+                            <div class="col-xxl-6">
+                                <div>
+                                    <label for="nama" class="form-label">Nama</label>
+                                    <input required type="text" name="nama" class="form-control" id="nama"
+                                        placeholder="Nama">
+                                </div>
+                            </div><!--end col-->
+                            <div class="col-xxl-6">
+                                <label for="nama" class="form-label">Handphone</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">+62</span>
+                                    <input type="number" placeholder="Nomor Handphone" required name="nohp"
+                                        id="nohp" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div>
+                                    <label for="nama" class="form-label">Alamat</label>
+                                    <input required type="text" name="alamat" class="form-control" id="alamat"
+                                        placeholder="alamat">
+                                </div>
+                            </div>
+                            <!--end col-->
+
+                            <div class="col-lg-12">
+                                <div class=" gap-2 justify-content-end">
+                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                            <!--end col-->
+
+                        </div><!--end row-->
+                    </form> --}}
+                </div>
+
+            </div>
+        </div>
     </div>
     <div class="modal fade" id="detail-modal" aria-modal="true" tabindex="-1" aria-labelledby="exampleModalgridLabel">
         <div class="modal-dialog">
@@ -18,7 +188,7 @@
 
                     </div>
                     <div class="d-flex justify-content-bettwen">
-                        <h4 id="nama" class="card-title mb-2 col-8 text-capitalize"></h4>
+                        <h4 id="namab" class="card-title mb-2 col-8 text-capitalize"></h4>
                         <h6 id="stok" class="col-4 text-end text-danger">
                             </h4>
 
@@ -54,9 +224,12 @@
     @push('js')
         <script src="assets/js/pages/form-input-spin.init.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
         <script>
+            let datachekcout,bi;
+
             document.addEventListener("DOMContentLoaded", function() {
-                function barang(){
+                function barang() {
                     $.ajax({
                         url: "/api/barang",
                         type: "GET",
@@ -80,6 +253,7 @@
                         },
                     });
                 }
+
                 function getbarang(ar) {
                     $.ajax({
                         url: "/api/getbarang",
@@ -94,11 +268,10 @@
                                  </div>
                                 `);
                                 barang();
-                            }
-                            else {
-                            $.each(data.data, (i, val) => {
-                                $("#barang").append(
-                                    `<div class="col-xl-2 col-md-4 col-sm-6 col-xs-6">
+                            } else {
+                                $.each(data.data, (i, val) => {
+                                    $("#barang").append(
+                                        `<div class="col-xl-2 col-md-4 col-sm-6 col-xs-6">
                             <div class="card" data-aos="zoom-in" id="detail" data-bs-toggle="modal" data-bs-target="#detail-modal"  data-uuid="${val.uuid}" >
                                 <div style="height:150px; margin:10px">
                                     <img src="image/barang/${val.gambar}" class="card-img-top" style="object-fit:contain ;height:150px" alt="...">
@@ -110,8 +283,9 @@
                             </div>
                         </div>
                         </div> `
-                                );
-                            });}
+                                    );
+                                });
+                            }
                         },
                     });
                 }
@@ -127,28 +301,7 @@
 
                 } else {
                     barang();
-                    // $.ajax({
-                    //     url: "/api/barang",
-                    //     type: "GET",
-                    //     success: (data) => {
-                    //         $.each(data.data, (i, val) => {
-                    //             $("#barang").append(
-                    //                 `<div class="col-xl-2 col-md-4 col-sm-6 col-xs-6">
-                    //         <div class="card" data-aos="zoom-in" id="detail" data-bs-toggle="modal" data-bs-target="#detail-modal"  data-uuid="${val.uuid}" >
-                    //             <div style="height:150px; margin:10px">
-                    //                 <img src="image/barang/${val.gambar}" class="card-img-top" style="object-fit:contain ;height:150px" alt="...">
-                    //             </div>
-                                
-                    //         <div class="card-body">
-                    //             <h5 class="card-title text-capitalize">${val.nama}</h5>
-                    //             <p>Rp.${val.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
-                    //         </div>
-                    //     </div>
-                    //     </div> `
-                    //             );
-                    //         });
-                    //     },
-                    // });
+
                 }
                 $.ajax({
                     url: "/api/getkategori",
@@ -171,10 +324,9 @@
                         type: "GET",
                         success: (data) => {
                             $('#gambar').attr("src", "/image/barang/" + data.gambar);
-                            $('#chart').attr("data-uuid", data.uuid);
-                            $('#beli').attr("data-uuid", data.uuid);
+                            bi=data.uuid
                             $('#gambar').attr("alt", data.gambar);
-                            $('#nama').html(data.nama);
+                            $('#namab').html(data.nama);
                             $('#stok').html("Tersisa " + data.jumlah);
                             $('#deskripsi').html(data.deskripsi);
                             $('#harga').html("Rp." + data.harga.toString().replace(
@@ -184,10 +336,11 @@
                         },
                     });
                 });
-                $('body').on('click', '#chart', function() {
+                $('#chart').click(function() {
                     var jumlah = $('#jumlah').val();
+                    console.log(bi);
                     $.ajax({
-                        url: "api/barang/" + $(this).data("uuid"),
+                        url: "api/barang/" + bi,
                         type: "GET",
                         success: (data) => {
                             addChart = {
@@ -195,17 +348,17 @@
                                 nama: data.nama,
                                 gambar: data.gambar,
                                 harga: data.harga,
-                                jumlah: jumlah
+                                jumlah: jumlah,
+                                chart: true,
                             };
-                            if (localStorage.getItem('chart') === '[]' || localStorage.getItem(
-                                    'chart') === null) {
+                            if (localStorage.getItem('chart') === '[]' || 
+                            localStorage.getItem('chart') === null) {
                                 localStorage.setItem('chart', JSON.stringify([addChart]));
                             } else {
                                 var chart = JSON.parse(localStorage.getItem('chart'));
                                 var oldcart = chart.filter(e => e.id === addChart.id);
                                 // console.log(oldcart[0].id);
-                                console.log(addChart.id);
-                                if (oldcart.length != 0) {
+                                if (oldcart.length > 0) {
                                     // if (oldcart[0].id === addChart.id) {
                                     chart = chart.map(a => a.id === addChart.id ? {
                                         ...a,
@@ -228,17 +381,154 @@
 
                 });
                 $('body').on('click', '#beli', function() {
-                    var jumlah = $('#jumlah').val();
-                    var uuid = $(this).data("uuid")
+                    if (localStorage.getItem('noPelanggan') == null) {
+                        $('#costumer-modal').modal('show');
+                    } else {
+                        data = beli();
+                        datacheckout = data;
+                        $.each(data, (i, val) => {
+                            ag = parseInt(val.harga.replace("Rp.", "").replace('.', ""));
+                            console.log(ag);
+                            $('#or').empty();
+                            $('#or').append(
 
-                    if (localStorage.getItem('costumer') == null) {
-                        console.log('login');
+                                `<div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <img src="${
+                                                    val.gambar
+                                                }"
+                                                    class="me-3 rounded-circle avatar-md p-2 bg-light" alt="user-pic">
+                                                <div class="flex-1">
+                                                    <h6 class="mt-0 mb-1 fs-14">
+                                                        <a href="apps-ecommerce-product-details.html"
+                                                            class="text-reset">${
+                                                                val.nama
+                                                            }</a>
+                                                    </h6>
+                                                    <p class="mb-0 fs-12 text-muted">
+                                                        Quantity: <span>${
+                                                            val.jumlah
+                                                        } x ${val.harga} </span>
+                                                    </p>
+                                                </div>
+                                                <div class="px-2">
+                                                    <h5 class="m-0 fw-normal">Rp.<span
+                                                            class="cart-item-price total " >${
+                                                                ag * val.jumlah
+                                                            }</span></h5>
+                                                </div>
+                                            </div>
+                                        </div>`);
+                        });
+                        $('#checkout-total').text("Rp. " + $('.total').text())
+                        $('#checkout-modal').modal('show');
+
+                    }
+
+                });
+                $("#checkout").click(function() {
+                    type = $("#type").val();
+                    note = $("#note").val();
+                    costumer = localStorage.getItem('noPelanggan');
+                    checkout(datacheckout, type, note, costumer);
+                    if (datacheckout[0].chart) {
+                        localStorage.removeItem('chart');
+                        cart();
                     }
 
 
-
+                });
+                $("#checkouts").click(function() {
+                    datacheckout = JSON.parse(localStorage.getItem('chart'));
+                    data = datacheckout;
+                    $('#or').empty();
+                    $.each(data, (i, val) => {
+                        $('#or').append(
+                            `<div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <img src="image/barang/${
+                                                    val.gambar
+                                                }"
+                                                    class="me-3 rounded-circle avatar-md p-2 bg-light" alt="user-pic">
+                                                <div class="flex-1">
+                                                    <h6 class="mt-0 mb-1 fs-14">
+                                                        <a href="apps-ecommerce-product-details.html"
+                                                            class="text-reset">${
+                                                                val.nama
+                                                            }</a>
+                                                    </h6>
+                                                    <p class="mb-0 fs-12 text-muted">
+                                                        Quantity: <span>${
+                                                            val.jumlah
+                                                        } x ${val.harga} </span>
+                                                    </p>
+                                                </div>
+                                                <div class="px-2">
+                                                    <h5 class="m-0 fw-normal">Rp.<span
+                                                            class="cart-item-price total " >${
+                                                                val.harga *
+                                                                val.jumlah
+                                                            }</span></h5>
+                                                </div>
+                                            </div>
+                                        </div>`);
+                    });
+                    $('#checkout-total').text($('#cart-item-total').text())
+                    $('#checkout-modal').modal('show');
 
                 });
+
+
+
+
+                function checkout(data, type, note, pelanggan) {
+                    $.ajax({
+                        url: "/api/order",
+                        type: "POST",
+                        data: {
+                            pelanggan: pelanggan,
+                            data: JSON.stringify(data),
+                            type: type,
+                            note: note,
+                        },
+                        success: (data) => {
+                            toastr.success("Terima Kasih Telah Order", "Success");
+                            $('#checkout-modal').modal('hide');
+
+                        },
+                    });
+                }
+
+                function beli() {
+                    return [{
+                        id: bi,
+                        nama: $('#namab').text(),
+                        gambar: $('#gambar').attr('src').replace('/image/barang/',''),
+                        harga: $('#harga').text().replace('Rp.','').replace('.',''),
+                        jumlah: $('#jumlah').val(),
+                        chart: false,
+                    }];
+                }
+                $("#form-costumer").submit(function() {
+                    var dataform = new FormData($("#form-costumer")[0]);
+                    $.ajax({
+                        url: "/api/costumer",
+                        type: "POST",
+                        data: dataform,
+                        processData: false,
+                        contentType: false,
+                        success: (data) => {
+                            localStorage.setItem('noPelanggan', JSON.stringify(data.data));
+                            toastr.success("Terima Kasih Telah Mengisi Formulir", "Success");
+                            $('#costumer-modal').modal('hide');
+                            $('#form-costumer')[0].reset();
+                            $('#checkout-modal').modal('show');
+
+
+                        },
+                    });
+
+                })
             });
         </script>
     @endpush

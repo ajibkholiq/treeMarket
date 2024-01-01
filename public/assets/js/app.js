@@ -21,7 +21,7 @@ function cart() {
                                                     <p class="mb-0 fs-12 text-muted">
                                                         Quantity: <span>${
                                                             val.jumlah
-                                                        } x Rp.${val.harga
+                                                        } x Rp. ${val.harga
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ".")} </span>
                                                     </p>
@@ -1645,7 +1645,7 @@ function cart() {
         ),
             document.getElementById("cart-item-total") &&
                 (document.getElementById("cart-item-total").innerHTML =
-                    "Rp." + t.toFixed(2));
+                    "Rp." + t.toFixed(0));
     }
     function H() {
         Array.from(
@@ -1828,10 +1828,6 @@ function cart() {
                 )
             ).forEach(function (e) {
                 e.addEventListener("click", function (e) {
-                    var chart = JSON.parse(localStorage.getItem('chart'));
-                    var newcart = chart.filter(a => a.id !== $(this).data("uuid"));
-                    localStorage.setItem('chart', JSON.stringify(newcart));
-                    
                     r--,
                         this.closest(".dropdown-item-cart").remove(),
                         Array.from(
@@ -1848,6 +1844,10 @@ function cart() {
                             (document.getElementById(
                                 "checkout-elem"
                             ).style.display = 0 == r ? "none" : "block");
+
+                            var chart = JSON.parse(localStorage.getItem('chart'));
+                            var newcart = chart.filter(a => a.id !== $(this).data("uuid"));
+                            localStorage.setItem('chart', JSON.stringify(newcart));
                 });
             }),
             Array.from(

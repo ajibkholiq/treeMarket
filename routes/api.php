@@ -19,6 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
  Route::resource('/barang', App\Http\Controllers\BarangController::class);
  Route::resource('/kategori', App\Http\Controllers\KategoriController::class);
+ Route::resource('/costumer', App\Http\Controllers\CostumerController::class);
+ Route::resource('/order', App\Http\Controllers\OrderController::class);
  Route::get('getbarang',[App\Http\Controllers\BarangController::class,'getBarang']);
  Route::get('getkategori',[App\Http\Controllers\KategoriController::class,'getKategori']);
  Route::post('getbarang',[App\Http\Controllers\BarangController::class,'getBarangKategori']);

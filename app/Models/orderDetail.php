@@ -11,7 +11,9 @@ class orderDetail extends Model
 
     protected $fillable =[
         "order_id",
-        "barang_id",
+        "nama",
+        "gambar",
+        "harga",
         "jumlah"
     ];
 
@@ -19,8 +21,5 @@ class orderDetail extends Model
         return $this->belongsTo(order::class);
     }
 
-    public function barang(){
-        return $this->hasOne(barang::class);
-    }
 
 }

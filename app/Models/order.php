@@ -12,10 +12,12 @@ class order extends Model
     protected $fillable = [
         "uuid",
         "no_trans",
-        "customer_id",
+        "costumer_id",
         "tgl",
+        "type",
         "status",
-        "note"
+        "total",
+        "note",
     ];
 
     public static function customer (){

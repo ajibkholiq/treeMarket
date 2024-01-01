@@ -17,7 +17,10 @@ Route::get('/', function (Request $req) {
     return view('landing.index');
 });
 
-// Route::prefix('admin')->group( function (){
+Route::prefix('admin')->group( function (){
+Route::get('/' , function(){
+    return "login";
+});
 Route::get('/barang', function(){
     return view('admin.barang');
 });
@@ -25,4 +28,4 @@ Route::get('/barang', function(){
 Route::get('/kategori', function(){
     return view('admin.kategori');
 });
-// });
+});

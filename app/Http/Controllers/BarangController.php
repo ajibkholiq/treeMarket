@@ -15,7 +15,7 @@ class BarangController extends Controller
     }
     function store(Request $request){
         $photo = $request->file('gambar');
-        $name =str_replace("_"," " ,$request->nama);
+        $name =str_replace(" ","_" ,$request->nama);
         $imagename = $name.'.'.$photo->getClientOriginalExtension();
 
         // Menyimpan file photo ke folder public/photos (pastikan folder sudah ada dan writable)
@@ -102,7 +102,10 @@ class BarangController extends Controller
     function getBarangKategori(Request $request){
         if ($request->kategori){
         $kategori =kategori::where('nama',$request->kategori)->first();
+        if ($kategori == []) {$data = ["status"=>"success","data" =>"null"];}
+        else {
         $data = ["status"=>"success","data" =>barang::where('kategori_id',$kategori->id)->take(20)->get()];
+        }
         return response()->json($data, 200, );
         }
         if ($request->search){

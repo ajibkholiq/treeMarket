@@ -55,6 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 $("#formBarang").submit(function () {
     var dataform = new FormData($("#formBarang")[0]);
+    var deskripsi = CKEDITOR.instances.deskripsi.getData();
+    dataform.append('deskripsi', deskripsi)
     $.ajax({
         url: "/api/barang",
         type: "POST",
@@ -64,7 +66,7 @@ $("#formBarang").submit(function () {
         success : (response)=>{
             toastr.success("Berhasil ditambahkan!", "Barang");
             table.ajax.reload();
-            $('.show').hide();    
+            $('#add-modal').modal('hide');    
             $('#formBarang')[0].reset();
         },
     });
@@ -73,7 +75,7 @@ $("#formBarang").submit(function () {
 $("body").on("click", "#bt-hapus", function () {
     let uuid = $(this).data("id");
     $.ajax({
-        url: "api/barang/" + uuid,
+        url: "/api/barang/" + uuid,
         type: "DELETE",
         data: {
             _token: $("input[name='_token']").val(),
@@ -99,7 +101,7 @@ $("body").on("click", "#bt-edit", function () {
     });
 
     $.ajax({
-        url: "api/barang/" + $(this).data("uuid"),
+        url: "/api/barang/" + $(this).data("uuid"),
         type: "GET",
         success: (data) => {
             
@@ -115,7 +117,9 @@ $("body").on("click", "#bt-edit", function () {
 
 $("#edit").click( function () {
     var dataform = new FormData($("#editBarang")[0]);
-    $.ajax({
+    var deskripsi = CKEDITOR.instances.deskripsiedt.getData();
+    dataform.append('deskripsi', deskripsi)
+    $.ajax({    
         url: "/api/barang/"+ $('#uuid').val(),
         type: "POST",
         data : dataform,
@@ -124,7 +128,7 @@ $("#edit").click( function () {
         success : (response)=>{
             toastr.success("Berhasil diubah!", "Kategori");
             table.ajax.reload(); 
-            $('.show').hide();    
+            $('#add-modal').modal('hide');      
             $("#editBarang")[0].reset();
             
         }

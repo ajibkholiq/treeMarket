@@ -5,8 +5,11 @@
     <!--datatable responsive css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
 
+    
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-@endpush
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+    @endpush
 @section('content')
     <div class="row">
 
@@ -41,7 +44,7 @@
     </div>
     </div>
     <!-- Grids in modals -->
-    <div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+    <div class="modal fade modal-lg" id="add-modal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -92,7 +95,7 @@
                             <!-- Example Textarea -->
                             <div>
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
-                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4"></textarea>
+                                <textarea class="form-control" id="deskripsi"  rows="4"></textarea>
                             </div>
                             <div class="col-lg-12">
                                 <div class=" gap-2 justify-content-end">
@@ -158,7 +161,7 @@
                             <!-- Example Textarea -->
                             <div>
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
-                                <textarea class="form-control" id="deskripsiedt" name="deskripsi" rows="4"></textarea>
+                                <textarea class="form-control" id="deskripsiedt" rows="4"></textarea>
                             </div>
                             <div class="col-lg-12">
                                 <div class="hstack gap-2 justify-content-end">
@@ -185,6 +188,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="assets/js/pages/datatables.init.js"></script>
+    <script>  
+    CKEDITOR.replace('deskripsiedt');
+    CKEDITOR.replace('deskripsi');
+    </script>
+    <script src="{{url('assets/js/pages/datatables.init.js')}}"></script>
     <script src="{{ url('js/barang.js') }}"></script>
 @endpush

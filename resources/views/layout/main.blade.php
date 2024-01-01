@@ -61,7 +61,7 @@
 
                     </div>
 
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center" id="i">
 
                         <div class="dropdown d-md-none topbar-head-dropdown header-item">
                             <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
@@ -121,36 +121,9 @@
                                                 </div>
                                             </div>
                                             <h5 class="mb-3">Your Cart is Empty!</h5>
-                                            <a href="apps-ecommerce-products.html"
-                                                class="btn btn-success w-md mb-3">Shop Now</a>
                                         </div>
                                         <div id="e">
-                                            <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
-                                                <div class="d-flex align-items-center">
-                                                    <img src="{{ url('assets/images/products/img-1.png') }}"
-                                                        class="me-3 rounded-circle avatar-sm p-2 bg-light"
-                                                        alt="user-pic">
-                                                    <div class="flex-1">
-                                                        <h6 class="mt-0 mb-1 fs-14">
-                                                            <a href="apps-ecommerce-product-details.html"
-                                                                class="text-reset">Branded
-                                                                T-Shirts</a>
-                                                        </h6>
-                                                        <p class="mb-0 fs-12 text-muted">
-                                                            Quantity: <span>10 x $32</span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="px-2">
-                                                        <h5 class="m-0 fw-normal">Rp.<span
-                                                                class="cart-item-price">32000</span></h5>
-                                                    </div>
-                                                    <div class="ps-2">
-                                                        <button type="button"
-                                                            class="btn btn-icon btn-sm btn-ghost-secondary remove-item-btn"><i
-                                                                class="ri-close-fill fs-16"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
 
                                     </div>
@@ -164,9 +137,9 @@
                                         </div>
                                     </div>
 
-                                    <a href="apps-ecommerce-checkout.html" class="btn btn-success text-center w-100">
+                                    <button id="checkouts" class="btn btn-success text-center w-100">
                                         Checkout
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -498,6 +471,7 @@
                                 </div>
                             </div>
                         </div>
+                       
 
                     </div>
                 </div>
@@ -641,8 +615,32 @@
 
     <!-- App js -->
     <script>
-        
-    </script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if(localStorage.getItem('noPelanggan')!= null ){
+            data = JSON.parse(localStorage.getItem('noPelanggan'));
+            $('#i').append(
+                ` <div class="dropdown ms-sm-3 header-item topbar-user">
+                            <button type="button" class="btn show" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="d-flex align-items-center">
+                                    <img class="rounded-circle header-profile-user" src="assets/images/users/user-dummy-img.jpg" alt="Header Avatar">
+                                    <span class="text-start ms-xl-2">
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">${data.nama}</span>
+                                        <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Costumer</span>
+                                    </span>
+                                </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 65px, 0px);">
+                                <!-- item-->
+                                <h6 class="dropdown-header">${data.nama}</h6>
+                                <a class="dropdown-item" href="pages-profile.html"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+                            
+                            </div>
+                        </div>`
+            )
+            }
+
+        });
+        </script>
     <script src="{{ url('assets/js/app.js') }}"></script>
     @stack('js')
 </body>

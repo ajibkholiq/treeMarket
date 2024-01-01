@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class customer extends Model
+class costumer extends Model
 {
     use HasFactory;
 
@@ -13,6 +13,7 @@ class customer extends Model
         "uuid",
         "no_plg",
         "nama",
+        "email",
         "no_hp",
         "alamat"
     ];

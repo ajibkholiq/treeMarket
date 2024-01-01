@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $("body").on("click", "#bt-hapus", function () {
         let uuid = $(this).data("id");
         $.ajax({
-            url: "api/kategori/" + uuid,
+            url: "/api/kategori/" + uuid,
             type: "DELETE",
             data: {
                 _token: $("input[name='_token']").val(),
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     $("body").on("click", "#bt-edit", function () {
         $.ajax({
-            url: "api/kategori/" + $(this).data("uuid"),
+            url: "/api/kategori/" + $(this).data("uuid"),
             type: "GET",
             success: (data) => {
                 $('#namae').val(data.nama);

@@ -15,12 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string("uuid");
             $table->string("no_trans");
-            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('costumer_id');
             $table->date("tgl");
             $table->string("status");
-            $table->string("note");
+            $table->string("type");
+            $table->string("total");
+            $table->string("note")->nullable();
             $table->timestamps();
-            $table->foreign("customer_id")->references("id")->on("customers");
+
+            $table->foreign("costumer_id")->references("id")->on("costumers")->onDelete('cascade');
         });
     }
 
