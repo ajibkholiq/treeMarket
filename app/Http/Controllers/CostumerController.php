@@ -16,7 +16,8 @@ class CostumerController extends Controller
             'uuid' => uniqid(),
             'nama' => $request->nama, 
             'email' =>$request->email,
-            "no_plg"=> $no,
+            'password' =>$request->password,
+            "no_plg"=> "CS".$no,
             "no_hp" =>$request->nohp,
             "alamat" => $request->alamat,
      ]);
@@ -29,20 +30,23 @@ class CostumerController extends Controller
         return response()->json(costumer::where('uuid',$id)->first(), 200);
     }
     function update(Request $request,$uuid){
-        $data = costumer::where('uuid',$uuid)->update([
-            'nama' => $request->nama,
-            'no_hp' => $request->nohp,
-            'alamat' => $request->alamat,
+
+        $data = costumer::where('no_plg',$uuid)->update([
+            'nama' => $request->nama, 
+            'email' =>$request->email,
+            'password' =>$request->password,
+            "no_hp" =>$request->nohp,
+            "alamat" => $request->alamat,
         ]);
-        return response()->json(['succsess' => 'Unit berhasil diubah', 'data' => $request]);
+        return response()->json(['succsess' => 'Pelanggan berhasil diubah', 'data' => $request]);
     }
     function destroy($id){
         $data = costumer::where('uuid',$id)->first();
         $data->delete();
         if($data->delete()){
-            return response()->json(['succsess' => 'Unit berhasil dihapus', 'data' => $id]);
+            return response()->json(['succsess' => 'Pelanggan berhasil dihapus', 'data' => $id]);
         }
-        return response()->json(['fail' => 'Unit gagal dihapus', 'data' => $id]);
+        return response()->json(['fail' => 'gagal dihapus', 'data' => $id]);
 
     }
     function noPlg() {
@@ -51,5 +55,16 @@ class CostumerController extends Controller
             $result .= mt_rand(0, 9); // Menggunakan mt_rand() untuk angka acak
         }
         return $result;
+    }
+    function login(Request $request){
+        $user = costumer::where('no_plg',$request->noplg)->first();
+        if($user == null){
+            return response()->json(["status"=>"Fail","message"=>"Nomor Pelanggan Tidak Ditemukan"], 200);
+            }
+        if ($user->password == $request->password){
+            return response()->json(["status"=>"Success","message"=>"Berhasil Login","data" => $user], 200);
+        }
+        return response()->json(["status"=>"Fail","message"=>"Kata Sandi Salah"], 200);
+        
     }
 }

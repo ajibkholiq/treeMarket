@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | Velzon - Admin & Dashboard Template</title>
+    <title>TreeMarket | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -355,7 +355,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <a class="dropdown-item" href="auth-logout-basic.html"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
+                        <a class="dropdown-item" href="{{route('logout')}}"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
                     </div>
                 </div>
             </div>
@@ -416,6 +416,13 @@
                         <li class="nav-item">
                             <a href="/admin/barang" class="nav-link" data-key="t-barang"> <i class="ri-dashboard-2-line"></i> Barang </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/admin/order" class="nav-link" data-key="t-costumer"> <i class="ri-dashboard-2-line"></i>Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/costumer" class="nav-link" data-key="t-costumer"> <i class="ri-dashboard-2-line"></i> Pelanggan</a>
+                        </li>
+                        
                     </ul>
                 </div>
                 <!-- Sidebar -->

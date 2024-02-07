@@ -161,7 +161,7 @@
                             <!-- Example Textarea -->
                             <div>
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
-                                <textarea class="form-control" id="deskripsiedt" rows="4"></textarea>
+                                <textarea class="form-control" id="deskripsiedt" name="deskripsi" rows="4"></textarea>
                             </div>
                             <div class="col-lg-12">
                                 <div class="hstack gap-2 justify-content-end">
@@ -189,7 +189,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
     <script>  
-    CKEDITOR.replace('deskripsiedt');
+    // CKEDITOR.replace('deskripsiedt');
     CKEDITOR.replace('deskripsi');
     </script>
     <script src="{{url('assets/js/pages/datatables.init.js')}}"></script>

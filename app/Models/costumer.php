@@ -13,6 +13,7 @@ class costumer extends Model
         "uuid",
         "no_plg",
         "nama",
+        "password",
         "email",
         "no_hp",
         "alamat"

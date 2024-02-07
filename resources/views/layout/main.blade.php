@@ -51,12 +51,13 @@
                         </div>
                         <form method="GET" class="app-search d-none d-md-block">
                             <div class="position-relative">
-                                <input type="text" name="search" class="form-control" placeholder="Search..." value="">
+                                <input type="text" name="search" class="form-control" placeholder="Search..."
+                                    value="">
                                 <span class="mdi mdi-magnify search-widget-icon"></span>
                                 <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
                                     id="search-close-options"></span>
                             </div>
-                           
+
                         </form>
 
                     </div>
@@ -114,7 +115,7 @@
                                 </div>
                                 <div data-simplebar style="max-height: 300px;">
                                     <div class="p-2">
-                                        <div class="text-center empty-cart" id="empty-cart">
+                                        <div class="text-center empty-cart show" id="empty-cart">
                                             <div class="avatar-md mx-auto my-3">
                                                 <div class="avatar-title bg-soft-info text-info fs-36 rounded-circle">
                                                     <i class='bx bx-cart'></i>
@@ -122,13 +123,10 @@
                                             </div>
                                             <h5 class="mb-3">Your Cart is Empty!</h5>
                                         </div>
-                                        <div id="e">
-                                            
-                                        </div>
-
+                                        <div id="e"></div>
                                     </div>
                                 </div>
-                                <div class="p-3 border-bottom-0 border-start-0 border-end-0 border-dashed border"
+                                <div class="p-3 border-bottom-0 border-start-0 border-end-0 border-dashed border "
                                     id="checkout-elem">
                                     <div class="d-flex justify-content-between align-items-center pb-3">
                                         <h5 class="m-0 text-muted">Total:</h5>
@@ -176,18 +174,6 @@
                                                     All (4)
                                                 </a>
                                             </li>
-                                            <li class="nav-item waves-effect waves-light">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#messages-tab"
-                                                    role="tab" aria-selected="false">
-                                                    Messages
-                                                </a>
-                                            </li>
-                                            <li class="nav-item waves-effect waves-light">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#alerts-tab"
-                                                    role="tab" aria-selected="false">
-                                                    Alerts
-                                                </a>
-                                            </li>
                                         </ul>
                                     </div>
 
@@ -231,97 +217,6 @@
                                                 </div>
                                             </div>
 
-                                            <div
-                                                class="text-reset notification-item d-block dropdown-item position-relative">
-                                                <div class="d-flex">
-                                                    <img src="{{ url('assets/images/users/avatar-2.jpg') }}"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                                    <div class="flex-1">
-                                                        <a href="#!" class="stretched-link">
-                                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">Angela Bernier</h6>
-                                                        </a>
-                                                        <div class="fs-13 text-muted">
-                                                            <p class="mb-1">Answered to your comment on the cash flow
-                                                                forecast's
-                                                                graph 🔔.</p>
-                                                        </div>
-                                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                            <span><i class="mdi mdi-clock-outline"></i> 48 min
-                                                                ago</span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="px-2 fs-15">
-                                                        <div class="form-check notification-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                value="" id="all-notification-check02">
-                                                            <label class="form-check-label"
-                                                                for="all-notification-check02"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div
-                                                class="text-reset notification-item d-block dropdown-item position-relative">
-                                                <div class="d-flex">
-                                                    <div class="avatar-xs me-3">
-                                                        <span
-                                                            class="avatar-title bg-soft-danger text-danger rounded-circle fs-16">
-                                                            <i class='bx bx-message-square-dots'></i>
-                                                        </span>
-                                                    </div>
-                                                    <div class="flex-1">
-                                                        <a href="#!" class="stretched-link">
-                                                            <h6 class="mt-0 mb-2 fs-13 lh-base">You have received <b
-                                                                    class="text-success">20</b> new messages in the
-                                                                conversation
-                                                            </h6>
-                                                        </a>
-                                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                            <span><i class="mdi mdi-clock-outline"></i> 2 hrs
-                                                                ago</span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="px-2 fs-15">
-                                                        <div class="form-check notification-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                value="" id="all-notification-check03">
-                                                            <label class="form-check-label"
-                                                                for="all-notification-check03"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div
-                                                class="text-reset notification-item d-block dropdown-item position-relative">
-                                                <div class="d-flex">
-                                                    <img src="{{ url('assets/images/users/avatar-8.jpg') }}"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                                    <div class="flex-1">
-                                                        <a href="#!" class="stretched-link">
-                                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">Maureen Gibson</h6>
-                                                        </a>
-                                                        <div class="fs-13 text-muted">
-                                                            <p class="mb-1">We talked about a project on linkedin.
-                                                            </p>
-                                                        </div>
-                                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                            <span><i class="mdi mdi-clock-outline"></i> 4 hrs
-                                                                ago</span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="px-2 fs-15">
-                                                        <div class="form-check notification-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                value="" id="all-notification-check04">
-                                                            <label class="form-check-label"
-                                                                for="all-notification-check04"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                             <div class="my-3 text-center view-all">
                                                 <button type="button"
                                                     class="btn btn-soft-success waves-effect waves-light">View
@@ -331,135 +226,6 @@
                                         </div>
 
                                     </div>
-
-                                    <div class="tab-pane fade py-2 ps-2" id="messages-tab" role="tabpanel"
-                                        aria-labelledby="messages-tab">
-                                        <div data-simplebar style="max-height: 300px;" class="pe-2">
-                                            <div class="text-reset notification-item d-block dropdown-item">
-                                                <div class="d-flex">
-                                                    <img src="{{ url('assets/images/users/avatar-3.jpg') }}"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                                    <div class="flex-1">
-                                                        <a href="#!" class="stretched-link">
-                                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">James Lemire</h6>
-                                                        </a>
-                                                        <div class="fs-13 text-muted">
-                                                            <p class="mb-1">We talked about a project on linkedin.
-                                                            </p>
-                                                        </div>
-                                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                            <span><i class="mdi mdi-clock-outline"></i> 30 min
-                                                                ago</span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="px-2 fs-15">
-                                                        <div class="form-check notification-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                value="" id="messages-notification-check01">
-                                                            <label class="form-check-label"
-                                                                for="messages-notification-check01"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-reset notification-item d-block dropdown-item">
-                                                <div class="d-flex">
-                                                    <img src="{{ url('assets/images/users/avatar-2.jpg') }}"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                                    <div class="flex-1">
-                                                        <a href="#!" class="stretched-link">
-                                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">Angela Bernier</h6>
-                                                        </a>
-                                                        <div class="fs-13 text-muted">
-                                                            <p class="mb-1">Answered to your comment on the cash flow
-                                                                forecast's
-                                                                graph 🔔.</p>
-                                                        </div>
-                                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                            <span><i class="mdi mdi-clock-outline"></i> 2 hrs
-                                                                ago</span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="px-2 fs-15">
-                                                        <div class="form-check notification-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                value="" id="messages-notification-check02">
-                                                            <label class="form-check-label"
-                                                                for="messages-notification-check02"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-reset notification-item d-block dropdown-item">
-                                                <div class="d-flex">
-                                                    <img src="{{ url('assets/images/users/avatar-6.jpg') }}"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                                    <div class="flex-1">
-                                                        <a href="#!" class="stretched-link">
-                                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">Kenneth Brown</h6>
-                                                        </a>
-                                                        <div class="fs-13 text-muted">
-                                                            <p class="mb-1">Mentionned you in his comment on 📃
-                                                                invoice #12501.
-                                                            </p>
-                                                        </div>
-                                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                            <span><i class="mdi mdi-clock-outline"></i> 10 hrs
-                                                                ago</span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="px-2 fs-15">
-                                                        <div class="form-check notification-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                value="" id="messages-notification-check03">
-                                                            <label class="form-check-label"
-                                                                for="messages-notification-check03"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-reset notification-item d-block dropdown-item">
-                                                <div class="d-flex">
-                                                    <img src="{{ url('assets/images/users/avatar-8.jpg') }}"
-                                                        class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                                    <div class="flex-1">
-                                                        <a href="#!" class="stretched-link">
-                                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">Maureen Gibson</h6>
-                                                        </a>
-                                                        <div class="fs-13 text-muted">
-                                                            <p class="mb-1">We talked about a project on linkedin.
-                                                            </p>
-                                                        </div>
-                                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                            <span><i class="mdi mdi-clock-outline"></i> 3 days
-                                                                ago</span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="px-2 fs-15">
-                                                        <div class="form-check notification-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                value="" id="messages-notification-check04">
-                                                            <label class="form-check-label"
-                                                                for="messages-notification-check04"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="my-3 text-center view-all">
-                                                <button type="button"
-                                                    class="btn btn-soft-success waves-effect waves-light">View
-                                                    All Messages <i
-                                                        class="ri-arrow-right-line align-middle"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade p-4" id="alerts-tab" role="tabpanel"
-                                        aria-labelledby="alerts-tab"></div>
-
                                     <div class="notification-actions" id="notification-actions">
                                         <div class="d-flex text-muted justify-content-center">
                                             Select <div id="select-content" class="text-body fw-semibold px-1">0</div>
@@ -471,7 +237,8 @@
                                 </div>
                             </div>
                         </div>
-                       
+
+
 
                     </div>
                 </div>
@@ -515,18 +282,19 @@
                 <div class="container-fluid" style="">
                     <div id="two-column-menu">
                     </div>
-                    <ul class="navbar-nav d-flex justify-content-end" id="navbar-nav">
+                    <ul class="navbar-nav d-flex justify-content-end me-5" id="navbar-nav">
                         <li class="nav-item ">
-                            <a class="nav-link menu-link collapsed" href="#kategori-b" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                               </i> <span data-key="t-kategori">Kategori</span>
+                            <a class="nav-link menu-link collapsed" href="#kategori-b" data-bs-toggle="collapse"
+                                role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                                </i> <span data-key="t-kategori">Kategori</span>
                             </a>
                             <div class="menu-dropdown collapse" id="kategori-b" style="">
                                 <ul class="nav nav-sm flex-column "id="kategori">
-                                  
+
                                 </ul>
                             </div>
                         </li>
-                       
+
 
                     </ul>
                 </div>
@@ -616,31 +384,51 @@
     <!-- App js -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            if(localStorage.getItem('noPelanggan')!= null ){
-            data = JSON.parse(localStorage.getItem('noPelanggan'));
-            $('#i').append(
-                ` <div class="dropdown ms-sm-3 header-item topbar-user">
+            if (localStorage.getItem('noPelanggan') != null) {
+                data = JSON.parse(localStorage.getItem('noPelanggan'));
+                $('#i').append(
+                    ` <div class="dropdown ms-sm-3 header-item topbar-user">
                             <button type="button" class="btn show" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 <span class="d-flex align-items-center">
                                     <img class="rounded-circle header-profile-user" src="assets/images/users/user-dummy-img.jpg" alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
                                         <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">${data.nama}</span>
-                                        <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Costumer</span>
+                                        <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text"><span class="text-secondary">${data.no_pelanggan}<span/> </span>
                                     </span>
                                 </span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 65px, 0px);">
                                 <!-- item-->
-                                <h6 class="dropdown-header">${data.nama}</h6>
-                                <a class="dropdown-item" href="pages-profile.html"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+                                <h6 class=" text-capitalize dropdown-header">${data.nama} | <span class="text-secondary">${data.no_pelanggan}<span/> </h6>
+                                <a class="dropdown-item" href="/order"><i class="ri  ri-truck-line text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Order</span></a>
+                                <button id="logout" class="dropdown-item"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></button>
+                            </div>
+                        </div>
+                    `
+                )
+            } else {
+                $('#i').append(
+                    ` <div class="dropdown ms-sm-3 header-item topbar-user">
+                            <button type="button" class="btn show" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="d-flex align-items-center">
+                                    <img class="rounded-circle header-profile-user" src="assets/images/users/user-dummy-img.jpg" alt="Header Avatar">
+                                </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 65px, 0px);">
+                                <!-- item-->
+                                <button class="dropdown-item" id="masuk"><span class="align-middle">Masuk</span></button>
+                                <button class="dropdown-item" id="daftar" ><span class="align-middle">Daftar</span></button>
                             
                             </div>
-                        </div>`
-            )
+                        </div>
+                   `
+                )
             }
 
+
+
         });
-        </script>
+    </script>
     <script src="{{ url('assets/js/app.js') }}"></script>
     @stack('js')
 </body>

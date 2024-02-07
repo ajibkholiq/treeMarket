@@ -20,8 +20,8 @@ class order extends Model
         "note",
     ];
 
-    public static function customer (){
-        return $this->belongsTo(cutomer::class);
+    public function costumer (){
+        return $this->belongsTo(costumer::class);
     }
 
     public function detail(){

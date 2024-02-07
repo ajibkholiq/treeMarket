@@ -117,8 +117,8 @@ $("body").on("click", "#bt-edit", function () {
 
 $("#edit").click( function () {
     var dataform = new FormData($("#editBarang")[0]);
-    var deskripsi = CKEDITOR.instances.deskripsiedt.getData();
-    dataform.append('deskripsi', deskripsi)
+    // var deskripsi = CKEDITOR.instances.deskripsiedt.getData();
+    // dataform.append('deskripsi', deskripsi)
     $.ajax({    
         url: "/api/barang/"+ $('#uuid').val(),
         type: "POST",
@@ -128,7 +128,7 @@ $("#edit").click( function () {
         success : (response)=>{
             toastr.success("Berhasil diubah!", "Kategori");
             table.ajax.reload(); 
-            $('#add-modal').modal('hide');      
+            $('#edit-modal').modal('hide');      
             $("#editBarang")[0].reset();
             
         }

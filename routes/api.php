@@ -21,6 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  Route::resource('/kategori', App\Http\Controllers\KategoriController::class);
  Route::resource('/costumer', App\Http\Controllers\CostumerController::class);
  Route::resource('/order', App\Http\Controllers\OrderController::class);
+ Route::get('/ordercos/{id}', [App\Http\Controllers\OrderController::class,'ordercos']);
  Route::get('getbarang',[App\Http\Controllers\BarangController::class,'getBarang']);
  Route::get('getkategori',[App\Http\Controllers\KategoriController::class,'getKategori']);
  Route::post('getbarang',[App\Http\Controllers\BarangController::class,'getBarangKategori']);
+ Route::post('/costumer/login',[App\Http\Controllers\CostumerController::class,'login']);
+ Route::post('/update-status',[App\Http\Controllers\OrderController::class,'updateStatus']);

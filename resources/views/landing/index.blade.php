@@ -53,7 +53,7 @@
                             <label for="type" class="form-label">Type</label>
                             <select required class="form-select mb-3" name="type" id="type"
                                 aria-label="Default select example">
-                                <option value="kirim">Kirim ke Rumah</option>
+                                <option value="kirim">Kirim ke Rumah (Ongkir per-KM 2500)</option>
                                 <option value="ambil">Ambil ke Toko</option>
                             </select>
                         </div>
@@ -86,8 +86,8 @@
                             <div class="tab-pane fade active show" id="pills-bill-info" role="tabpanel"
                                 aria-labelledby="pills-bill-info-tab">
                                 <div>
-                                    <h5 class="mb-1">Billing Information</h5>
-                                    <p class="text-muted mb-4">Please fill all information below</p>
+                                    <h5 class="mb-1">Infomasi Pelanggan</h5>
+                                    <p class="text-muted mb-4">Silahkan Isi Data diri Anda</p>
                                 </div>
 
                                 <div>
@@ -121,7 +121,15 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="billinginfo-firstName" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="password1"
+                                                    name="password" placeholder="Enter password" value="">
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="mb-3">
                                         <label for="billinginfo-address" class="form-label">Address</label>
                                         <textarea class="form-control" id="alamat" name="alamat" placeholder="Enter address" rows="3"></textarea>
@@ -136,43 +144,57 @@
                         </div>
                         <!-- end tab content -->
                     </form>
-                    {{-- <form action="javascript:void(0);" method="POST" id="form-costumer" data-uuid="" data-jumlah=""
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="exampleModalgridLabel" aria-modal="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <form action="javascript:void(0);" method="POST" id="login" data-uuid="" data-jumlah=""
                         enctype="multipart/form-data">
-                        <div class="row g-3">
-                            <div class="col-xxl-6">
-                                <div>
-                                    <label for="nama" class="form-label">Nama</label>
-                                    <input required type="text" name="nama" class="form-control" id="nama"
-                                        placeholder="Nama">
-                                </div>
-                            </div><!--end col-->
-                            <div class="col-xxl-6">
-                                <label for="nama" class="form-label">Handphone</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text">+62</span>
-                                    <input type="number" placeholder="Nomor Handphone" required name="nohp"
-                                        id="nohp" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-xxl-6">
-                                <div>
-                                    <label for="nama" class="form-label">Alamat</label>
-                                    <input required type="text" name="alamat" class="form-control" id="alamat"
-                                        placeholder="alamat">
-                                </div>
-                            </div>
-                            <!--end col-->
 
-                            <div class="col-lg-12">
-                                <div class=" gap-2 justify-content-end">
-                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="pills-bill-info" role="tabpanel"
+                                aria-labelledby="pills-bill-info-tab">
+                                <div>
+                                    <h5 class="mb-1">Masuk</h5>
+                                    <p class="text-muted mb-4">Silahkan Masukan Nomor Pelanggan dan Sandi Anda </p>
+                                </div>
+
+                                <div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="billinginfo-firstName" class="form-label">No Pelanggan</label>
+                                                <input type="number" class="form-control" id="noplg" name="noplg"
+                                                    placeholder="Masukan No Pelanggan" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="billinginfo-firstName" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="password"
+                                                    name="password" placeholder="Enter password" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="d-flex">
+                                        <button type="submit" class="btn btn-primary right ms-auto nexttab">Masuk
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <!--end col-->
-
-                        </div><!--end row-->
-                    </form> --}}
+                        </div>
+                        <!-- end tab content -->
+                    </form>
                 </div>
 
             </div>
@@ -226,7 +248,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
         <script>
-            let datachekcout,bi;
+            let datacheckout, bi;
 
             document.addEventListener("DOMContentLoaded", function() {
                 function barang() {
@@ -324,7 +346,7 @@
                         type: "GET",
                         success: (data) => {
                             $('#gambar').attr("src", "/image/barang/" + data.gambar);
-                            bi=data.uuid
+                            bi = data.uuid
                             $('#gambar').attr("alt", data.gambar);
                             $('#namab').html(data.nama);
                             $('#stok').html("Tersisa " + data.jumlah);
@@ -338,7 +360,6 @@
                 });
                 $('#chart').click(function() {
                     var jumlah = $('#jumlah').val();
-                    console.log(bi);
                     $.ajax({
                         url: "api/barang/" + bi,
                         type: "GET",
@@ -351,8 +372,8 @@
                                 jumlah: jumlah,
                                 chart: true,
                             };
-                            if (localStorage.getItem('chart') === '[]' || 
-                            localStorage.getItem('chart') === null) {
+                            if (localStorage.getItem('chart') === '[]' ||
+                                localStorage.getItem('chart') === null) {
                                 localStorage.setItem('chart', JSON.stringify([addChart]));
                             } else {
                                 var chart = JSON.parse(localStorage.getItem('chart'));
@@ -381,11 +402,11 @@
 
                 });
                 $('body').on('click', '#beli', function() {
+                    data = beli();
+                    datacheckout = data;
                     if (localStorage.getItem('noPelanggan') == null) {
                         $('#costumer-modal').modal('show');
                     } else {
-                        data = beli();
-                        datacheckout = data;
                         $.each(data, (i, val) => {
                             ag = parseInt(val.harga.replace("Rp.", "").replace('.', ""));
                             console.log(ag);
@@ -394,7 +415,7 @@
 
                                 `<div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                             <div class="d-flex align-items-center">
-                                                <img src="${
+                                                <img src="/image/barang/${
                                                     val.gambar
                                                 }"
                                                     class="me-3 rounded-circle avatar-md p-2 bg-light" alt="user-pic">
@@ -439,12 +460,15 @@
 
                 });
                 $("#checkouts").click(function() {
-                    datacheckout = JSON.parse(localStorage.getItem('chart'));
-                    data = datacheckout;
-                    $('#or').empty();
-                    $.each(data, (i, val) => {
-                        $('#or').append(
-                            `<div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
+                    data = JSON.parse(localStorage.getItem('chart'));
+                    datacheckout = data;
+                    if (localStorage.getItem('noPelanggan') == null) {
+                        $('#costumer-modal').modal('show');
+                    } else {
+                        $('#or').empty();
+                        $.each(data, (i, val) => {
+                            $('#or').append(
+                                `<div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                             <div class="d-flex align-items-center">
                                                 <img src="image/barang/${
                                                     val.gambar
@@ -472,10 +496,10 @@
                                                 </div>
                                             </div>
                                         </div>`);
-                    });
-                    $('#checkout-total').text($('#cart-item-total').text())
-                    $('#checkout-modal').modal('show');
-
+                        });
+                        $('#checkout-total').text($('#cart-item-total').text())
+                        $('#checkout-modal').modal('show');
+                    }
                 });
 
 
@@ -503,8 +527,8 @@
                     return [{
                         id: bi,
                         nama: $('#namab').text(),
-                        gambar: $('#gambar').attr('src').replace('/image/barang/',''),
-                        harga: $('#harga').text().replace('Rp.','').replace('.',''),
+                        gambar: $('#gambar').attr('src').replace('/image/barang/', ''),
+                        harga: $('#harga').text().replace('Rp.', '').replace('.', ''),
                         jumlah: $('#jumlah').val(),
                         chart: false,
                     }];
@@ -522,13 +546,91 @@
                             toastr.success("Terima Kasih Telah Mengisi Formulir", "Success");
                             $('#costumer-modal').modal('hide');
                             $('#form-costumer')[0].reset();
-                            $('#checkout-modal').modal('show');
-
+                            if (!daftar) {
+                                $.each(datacheckout, (i, val) => {
+                                    $('#or').append(
+                                        `<div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <img src="image/barang/${
+                                                    val.gambar
+                                                }"
+                                                    class="me-3 rounded-circle avatar-md p-2 bg-light" alt="user-pic">
+                                                <div class="flex-1">
+                                                    <h6 class="mt-0 mb-1 fs-14">
+                                                        <a href="apps-ecommerce-product-details.html"
+                                                            class="text-reset">${
+                                                                val.nama
+                                                            }</a>
+                                                    </h6>
+                                                    <p class="mb-0 fs-12 text-muted">
+                                                        Quantity: <span>${
+                                                            val.jumlah
+                                                        } x ${val.harga} </span>
+                                                    </p>
+                                                </div>
+                                                <div class="px-2">
+                                                    <h5 class="m-0 fw-normal">Rp.<span
+                                                            class="cart-item-price total " >${
+                                                                val.harga *
+                                                                val.jumlah
+                                                            }</span></h5>
+                                                </div>
+                                            </div>
+                                        </div>`);
+                                });
+                                $('#checkout-modal').modal('show');
+                            } else{
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 1000);  
+                            }
 
                         },
                     });
 
-                })
+                });
+                let daftar = false;
+                $('#daftar').click(function() {
+                    daftar = true;
+                    $('#costumer-modal').modal('show');
+                });
+                $('#masuk').click(function() {
+                    $('#login-modal').modal('show');
+                });
+                $('#login').submit(function() {
+                    var dataform = new FormData($("#login")[0]);
+                    $.ajax({
+                        url: "/api/costumer/login",
+                        type: "POST",
+                        data: dataform,
+                        processData: false,
+                        contentType: false,
+                        success: (data) => {
+                            toastr.success(data.message, data.status);
+                            if (data.status == "Success") {
+                                i = {
+                                    no_pelanggan: data.data.no_plg,
+                                    nama: data.data.nama
+                                };
+                                localStorage.setItem('noPelanggan', JSON.stringify(i));
+                                $('#login-modal').modal('hide');
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 2000);
+                            }
+                        },
+                    });
+                });
+                $('#logout').click(function() {
+                    localStorage.removeItem('noPelanggan');
+                    toastr.success("Berhasil Logout", "Success");
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
+                });
+
+
+
             });
         </script>
     @endpush
