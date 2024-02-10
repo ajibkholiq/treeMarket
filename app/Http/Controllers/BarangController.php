@@ -14,12 +14,17 @@ class BarangController extends Controller
         return response()->json($data, 200, );["data" =>barang::get()];
     }
     function store(Request $request){
+        if ($request->file('gambar')){
         $photo = $request->file('gambar');
         $name =str_replace(" ","_" ,$request->nama);
         $imagename = $name.'.'.$photo->getClientOriginalExtension();
 
         // Menyimpan file photo ke folder public/photos (pastikan folder sudah ada dan writable)
         $photoPath = $photo->move(public_path('image/barang'),$imagename);
+        }
+        else{
+            $imagename = "null";
+        }
         $create =barang::create([
             'uuid' => uniqid(),
             'kategori_id' => $request->kategori,
